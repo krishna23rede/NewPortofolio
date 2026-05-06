@@ -53,9 +53,9 @@ switch (state) {
     snippet: `float score = (threat * 0.7f) + ((1f / distance) * 0.3f);
 if (score > bestScore) bestTarget = candidate;`,
     media: [
-      { type: "image", src: "Assets/BurgerGame/1.jpg", alt: "Customer system" },
+      { type: "image", src: "Assets/burgerGame/1.jpg", alt: "Customer system" },
       { type: "video", src: "Assets/AllRecording/BurgerGame-1.mp4" },
-      { type: "image", src: "Assets/BurgerGame/3.jpg", alt: "Drive-thru" }
+      { type: "image", src: "Assets/burgerGame/3.jpg", alt: "Drive-thru" }
     ]
   },
   "unity-3": {
@@ -152,9 +152,9 @@ if (isBoosting) speed += boostForce * dt;`,
     codeUrl: "https://github.com/",
     snippet: `threat = Mathf.Clamp(threat + spawnWeight - decay * dt, 0f, 100f);`,
     media: [
-      { type: "image", src: "Assets/KartGame/1.jpg", alt: "Track" },
+      { type: "image", src: "Assets/kartGame/1.jpg", alt: "Track" },
       { type: "video", src: "Assets/AllRecording/KartGame-1.mp4" },
-      { type: "image", src: "Assets/KartGame/3.jpg", alt: "Weapons" }
+      { type: "image", src: "Assets/kartGame/3.jpg", alt: "Weapons" }
     ]
   },
   "unity-8": {
