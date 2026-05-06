@@ -35,7 +35,7 @@ switch (state) {
 }`,
     media: [
       { type: "image", src: "Assets/BomberGame/1.jpg", alt: "Procedural map" },
-      { type: "video", src: "Assets/AllRecording/BomberMan-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BomberMan-1.mp4" },
       { type: "image", src: "Assets/BomberGame/2.jpg", alt: "Explosion VFX" }
     ]
   },
@@ -54,7 +54,7 @@ switch (state) {
 if (score > bestScore) bestTarget = candidate;`,
     media: [
       { type: "image", src: "Assets/burgerGame/1.jpg", alt: "Customer system" },
-      { type: "video", src: "Assets/AllRecording/BurgerGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BurgerGame-1.mp4" },
       { type: "image", src: "Assets/burgerGame/3.jpg", alt: "Drive-thru" }
     ]
   },
@@ -75,7 +75,7 @@ if (score > bestScore) bestTarget = candidate;`,
 }`,
     media: [
       { type: "image", src: "Assets/hideGame/1.jpg", alt: "Seeker gameplay" },
-      { type: "video", src: "Assets/AllRecording/HideGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HideGame-1.mp4" },
       { type: "image", src: "Assets/hideGame/6.jpg", alt: "Camouflage" }
     ]
   },
@@ -96,7 +96,7 @@ if (score > bestScore) bestTarget = candidate;`,
     media: [
       { type: "image", src: "Assets/hitmanGame/1.jpg", alt: "Grid system" },
       { type: "image", src: "Assets/hitmanGame/2.jpg", alt: "Enemy logic" },
-      { type: "video", src: "Assets/AllRecording/HitmanGame.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HitmanGame.mp4" }
     ]
   },
   "unity-5": {
@@ -114,7 +114,7 @@ if (score > bestScore) bestTarget = candidate;`,
 if (isBoosting) speed += boostForce * dt;`,
     media: [
       { type: "image", src: "Assets/hotelGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "Assets/AllRecording/HotelGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HotelGame-1.mp4" },
       { type: "image", src: "Assets/hotelGame/3.jpg", alt: "Cleaner AI" }
     ]
   },
@@ -135,7 +135,7 @@ if (isBoosting) speed += boostForce * dt;`,
 }`,
     media: [
       { type: "image", src: "Assets/hunterGame/1.jpg", alt: "Stealth gameplay" },
-      { type: "video", src: "Assets/AllRecording/HunterGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HunterGame-1.mp4" },
       { type: "image", src: "Assets/hunterGame/2.jpg", alt: "AI states" }
     ]
   },
@@ -153,7 +153,7 @@ if (isBoosting) speed += boostForce * dt;`,
     snippet: `threat = Mathf.Clamp(threat + spawnWeight - decay * dt, 0f, 100f);`,
     media: [
       { type: "image", src: "Assets/kartGame/1.jpg", alt: "Track" },
-      { type: "video", src: "Assets/AllRecording/KartGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/KartGame-1.mp4" },
       { type: "image", src: "Assets/kartGame/3.jpg", alt: "Weapons" }
     ]
   },
@@ -173,7 +173,7 @@ if (isBoosting) speed += boostForce * dt;`,
 }`,
     media: [
       { type: "image", src: "Assets/mallGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "Assets/AllRecording/MallGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/MallGame-1.mp4" },
       { type: "image", src: "Assets/mallGame/3.jpg", alt: "Inventory" }
     ]
   },
@@ -192,7 +192,7 @@ if (isBoosting) speed += boostForce * dt;`,
 nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     media: [
       { type: "image", src: "Assets/skiGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "Assets/AllRecording/SkiGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/SkiGame-1.mp4" },
       { type: "image", src: "Assets/skiGame/3.jpg", alt: "Ski lift" }
     ]
   },
@@ -212,7 +212,7 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
 }`,
     media: [
       { type: "image", src: "Assets/trackGame/1.jpg", alt: "Running" },
-      { type: "video", src: "Assets/AllRecording/TrackGame-1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/TrackGame-1.mp4" },
       { type: "image", src: "Assets/trackGame/4.jpg", alt: "Crowd" }
     ]
   },
@@ -229,9 +229,9 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     codeUrl: "https://github.com/",
     snippet: "joint.connectedBody = playerTwoRB; joint.linearLimit = new SoftJointLimit { limit = maxDistance };",
     media: [
-      { type: "video", src: "Assets/AssaultObstacle/Obstacle_1.mp4" },
-      { type: "video", src: "Assets/AssaultObstacle/Obstacle_2.mp4" },
-      { type: "video", src: "Assets/AssaultObstacle/Obstacle_3.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_2.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_3.mp4" }
     ]
   },
   "unreal-2": {
@@ -248,9 +248,9 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     codeUrl: "https://github.com/",
     snippet: "CurrentHeat = FMath::Clamp(CurrentHeat + HeatPerShot, 0.0f, MaxHeat); if (CurrentHeat >= MaxHeat) Overheat();",
     media: [
-      { type: "video", src: "Assets/TwinBlastGame/ShooterGame_1.mp4" },
-      { type: "video", src: "Assets/TwinBlastGame/ShooterGame_2.mp4" },
-      { type: "video", src: "Assets/TwinBlastGame/ShooterGame_3.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_2.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_3.mp4" }
     ]
   },
   "unreal-3": {
@@ -267,9 +267,9 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     codeUrl: "https://github.com/",
     snippet: "void ADrone::FireLaser() { FVector SpawnLoc = GetActorLocation(); FRotator SpawnRot = GetActorRotation(); SpawnProjectile(SpawnLoc, SpawnRot); }",
     media: [
-      { type: "video", src: "Assets/DroneGame/Drone_1.mp4" },
-      { type: "video", src: "Assets/DroneGame/Drone_2.mp4" },
-      { type: "video", src: "Assets/DroneGame/Drone_3.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_2.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_3.mp4" }
     ]
   },
   "unreal-4": {
@@ -285,8 +285,8 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     codeUrl: "https://github.com/",
     snippet: "BT_Enemy->RunBehaviorTree(EnemyBehaviorAsset); // Execute logic to find and chase player",
     media: [
-      { type: "video", src: "Assets/ShooterSam/ShooterSam_1.mp4" },
-      { type: "video", src: "Assets/ShooterSam/ShooterSam_2.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/ShooterSam/ShooterSam_1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/ShooterSam/ShooterSam_2.mp4" }
     ]
   },
   "unreal-5": {
@@ -302,9 +302,9 @@ nextRoom = roomPool[rng.Next(roomPool.Count)];`,
     codeUrl: "https://github.com/",
     snippet: "rb.AddForce(transform.forward * instantAcceleration, ForceMode.VelocityChange);",
     media: [
-      { type: "video", src: "Assets/CarGame/Car_1.mp4" },
-      { type: "video", src: "Assets/CarGame/Car_2.mp4" },
-      { type: "video", src: "Assets/CarGame/Car_3.mp4" }
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_1.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_2.mp4" },
+      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_3.mp4" }
     ]
   }
 };
@@ -707,3 +707,4 @@ setupTileTilt();
 setupScrollReveal();
 setupUnityShowMore();
 setupVisiblePreviewPlayback();
+

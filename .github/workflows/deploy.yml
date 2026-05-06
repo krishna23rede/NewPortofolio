@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          lfs: true # Important: This fetches the actual media files instead of LFS pointers
+          lfs: false # Disable LFS to avoid hitting GitHub Pages 1GB size limit
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
