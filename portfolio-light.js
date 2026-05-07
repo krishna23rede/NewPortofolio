@@ -3,9 +3,8 @@ const headerRoot = document.querySelector('#site-header');
 const modal = document.querySelector('#project-modal');
 const modalTitle = document.querySelector('#modal-title');
 const modalDescription = document.querySelector('.modal-description');
-const modalHighlights = document.querySelector('.modal-highlights');
+const modalHighlightsGroups = document.querySelector('.modal-highlights-groups');
 const modalStack = document.querySelector('.modal-stack');
-const modalHighlightsTitle = document.querySelector('#modal-highlights-title');
 const modalStackTitle = document.querySelector('#modal-stack-title');
 const carouselTrack = document.querySelector('.carousel-track');
 const prevButton = document.querySelector('.carousel-btn.prev');
@@ -182,7 +181,6 @@ function renderPage() {
   appContent.innerHTML = [renderHero(), renderSkills(), renderProjects(), renderAbout(), renderContact()].join('');
   hero = document.querySelector('.hero');
   heroCanvas = document.querySelector('.hero-canvas');
-  modalHighlightsTitle.textContent = PORTFOLIO_DATA.modal.technicalHighlightsTitle;
   modalStackTitle.textContent = PORTFOLIO_DATA.modal.techStackTitle;
 }
 
@@ -511,11 +509,30 @@ function renderProject(projectId) {
   mediaIndex = 0;
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
-  modalHighlights.innerHTML = "";
-  project.highlights.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    modalHighlights.append(li);
+  const highlightGroups = project.highlightGroups || [
+    {
+      title: PORTFOLIO_DATA.modal.technicalHighlightsTitle,
+      points: project.highlights || []
+    }
+  ];
+  modalHighlightsGroups.innerHTML = '';
+  highlightGroups.forEach((group) => {
+    const block = document.createElement('div');
+    block.className = 'modal-block';
+
+    const heading = document.createElement('h4');
+    heading.textContent = group.title;
+    block.append(heading);
+
+    const list = document.createElement('ul');
+    list.className = 'modal-highlights';
+    (group.points || []).forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      list.append(li);
+    });
+    block.append(list);
+    modalHighlightsGroups.append(block);
   });
   modalStack.innerHTML = "";
   project.tech.forEach((item) => {
