@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Clean, interactive game developer portfolio showcasing gameplay systems and technical implementations.">
-  <title>Krishna | Game Developer</title>
+  <meta name="description" content="">
+  <title></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,235 +16,9 @@
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="logo" href="#home">Krishna</a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="resume-btn" href="Assets/KrishnaRede_Updated_CV.pdf" download>Download Resume</a>
-    </nav>
-  </header>
+  <header class="site-header" id="site-header"></header>
 
-  <main>
-    <section id="home" class="hero">
-      <canvas class="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>Krishna Rede</h1>
-        <p class="designation">Game Developer</p>
-        <p class="tagline">I build responsive gameplay systems and interactive combat experiences.<br>
-          Focused on performance, polish, and reusable technical architecture.</p>
-        <a class="hero-cta" href="#projects">View Projects</a>
-      </div>
-    </section>
-
-    <section class="section tech-stack" id="stack">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Core Toolkit</p>
-        <h2>Tech Stack</h2>
-      </div>
-      <div class="stack-grid reveal">
-        <span>Unity</span>
-        <span>Unreal Engine</span>
-        <span>C#</span>
-        <span>C++</span>
-        <span>Git</span>
-        <span>3D Physics</span>
-        <span>Blueprints</span>
-        <span>Profiling</span>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Showcase</p>
-        <h2>Projects</h2>
-      </div>
-
-      <div class="project-category reveal">
-        <h3>Unity Projects</h3>
-        <div class="tile-grid unity-grid">
-          <button class="project-tile" type="button" data-project-id="unity-1">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/BomberGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BomberMan-1.mp4" type="video/mp4">
-            </video>
-            <span>BomberMan</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unity-2">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/BurgerGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BurgerGame-2.mp4" type="video/mp4">
-            </video>
-            <span>Burger Shop</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unity-3">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/HideGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HideGame-1.mp4" type="video/mp4">
-            </video>
-            <span>Hide N Seek</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unity-4">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/HitmanGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HitmanGame.mp4" type="video/mp4">
-            </video>
-            <span>Hitman GO</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unity-5">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/HotelGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HotelGame-2.mp4" type="video/mp4">
-            </video>
-            <span>Perfect Hotel</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unity-6">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/HunterGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HunterGame-1.mp4" type="video/mp4">
-            </video>
-            <span>Hunter Assassin 3D</span>
-          </button>
-          <button class="project-tile unity-extra" type="button" data-project-id="unity-7">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/KartGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/KartGame-2.mp4" type="video/mp4">
-            </video>
-            <span>Kart Racer</span>
-          </button>
-          <button class="project-tile unity-extra" type="button" data-project-id="unity-8">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/MallGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/MallGame-2.mp4" type="video/mp4">
-            </video>
-            <span>Shopping Mall</span>
-          </button>
-          <button class="project-tile unity-extra" type="button" data-project-id="unity-9">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/SkiGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/SkiGame-1.mp4" type="video/mp4">
-            </video>
-            <span>Ski Resort</span>
-          </button>
-          <button class="project-tile unity-extra" type="button" data-project-id="unity-10">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/TrackGame.jpg">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/TrackGame-1.mp4" type="video/mp4">
-            </video>
-            <span>Track & Field</span>
-          </button>
-        </div>
-        <div class="project-more-wrap">
-          <button class="show-more-btn" type="button" data-show-more="unity">Show More</button>
-        </div>
-      </div>
-
-      <div class="project-category reveal">
-        <h3>Unreal Projects</h3>
-        <div class="tile-grid unreal-grid">
-          <button class="project-tile" type="button" data-project-id="unreal-1">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/Obstacle.png">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_1.mp4" type="video/mp4">
-            </video>
-            <span>Obstacle Assault</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unreal-2">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/Blaze.png">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_1.mp4" type="video/mp4">
-            </video>
-            <span>Blaze In Blaze Out</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unreal-3">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/Drone.png">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_2.mp4" type="video/mp4">
-            </video>
-            <span>Drone Strike</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unreal-4">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/Shooter.png">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/ShooterSam/ShooterSam_1.mp4" type="video/mp4">
-            </video>
-            <span>Shooter Sam</span>
-          </button>
-          <button class="project-tile" type="button" data-project-id="unreal-5">
-            <video autoplay muted loop playsinline preload="metadata" poster="Assets/HeadIcons/Car.png">
-              <source src="https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_1.mp4" type="video/mp4">
-            </video>
-            <span>Neon Drift</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">About</p>
-        <h2>Who I Am</h2>
-      </div>
-      <div class="about-stack">
-        <article class="about-block reveal">
-          <h3>Introduction</h3>
-          <p>My name is Krishna, and I am a Game Developer specializing in Unity and Unreal Engine with a Bachelor's
-            degree in Computer Science. I live in Pune, Maharashtra, and have a deep passion for both playing and
-            developing games. I am particularly interested in gameplay mechanics, systems architecture, AI behaviors,
-            and everything that drives interactive experiences. My work involves not just building games but also
-            exploring the underlying technologies that make them possible. I enjoy experimenting with different
-            frameworks, optimizing performance, and constantly learning to refine my craft.</p>
-        </article>
-        <article class="about-block reveal">
-          <h3>Skills</h3>
-          <ul>
-            <li><strong>Programming:</strong> C++, C#, HTML, CSS, JavaScript</li>
-            <li><strong>Engines & Technologies:</strong> Unity, Unreal Engine, Blueprints, 3D Physics, Mirror & Netcode
-              (Multiplayer)</li>
-            <li><strong>Tools & Services:</strong> Git, GitHub, Firebase</li>
-            <li><strong>Game Design:</strong> AI Behaviors, Game mechanics, UI/UX logic, level design, procedural
-              generation</li>
-          </ul>
-        </article>
-        <article class="about-block reveal">
-          <h3>Work Experience + Expertise</h3>
-          <h4>Unity Projects</h4>
-          <ul>
-            <li>Developed 8-10 games ranging across different genres, including shop management simulators, hyper-casual
-              games, and puzzle-based experiences.</li>
-            <li>Built complex systems with dynamic user interactions and resource management.</li>
-            <li>Focused on simplicity, polish, and optimizing user engagement in fast-paced designs.</li>
-            <li>Genre focus: Hyper-Casual, Management Simulations, Racing, Puzzle, Farming, and 2D Platformers.</li>
-          </ul>
-          <h4>Unreal Engine Projects</h4>
-          <ul>
-            <li>Developed advanced player movement and combat systems, including dash/evade mechanics, multi-shot
-              attacks, and auto-firing weapons.</li>
-            <li>Built complete boss fight systems with multi-phase behavior, special abilities, and dynamic AI
-              reactions.</li>
-            <li>Designed AI using state-based behaviors (Idle, Patrol, Chase, Attack, Ranged Attack, Hit React, Death).
-            </li>
-            <li>Implemented combat feedback (camera shake, hit reactions) and procedural animation elements like basic
-              leg IK.</li>
-            <li>Created Blueprint-driven interaction systems (doors, pickups, elevators) and diverse prototypes (car
-              driving, flying drones, platformers).</li>
-          </ul>
-        </article>
-        <article class="about-block reveal">
-          <h3>Additional Skills</h3>
-          <ul>
-            <li>C++ & Blueprint Visual Scripting Architecture</li>
-            <li>State-Machine & Behavior Tree driven AI Development</li>
-            <li>Gameplay Systems Architecture (Combat, Movement, Interactions)</li>
-            <li>Game Loop Design and Optimization</li>
-            <li>Testing and Debugging for Performance</li>
-            <li>Problem Solving and Analytical Thinking</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact reveal">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>Let’s Connect</h2>
-      </div>
-      <p>Available for gameplay programming roles, freelance systems work, and collaborative game projects.</p>
-      <div class="contact-links">
-        <a href="mailto:krishna34rede@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/krishna-rede-a4ab81242/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-    </section>
-  </main>
+  <main id="app-content"></main>
 
   <div class="modal" id="project-modal" aria-hidden="true">
     <div class="modal-overlay" data-close-modal></div>
@@ -261,11 +34,11 @@
           <h3 id="modal-title"></h3>
           <p class="modal-description"></p>
           <div class="modal-block">
-            <h4>Technical Highlights</h4>
+            <h4 id="modal-highlights-title"></h4>
             <ul class="modal-highlights"></ul>
           </div>
           <div class="modal-block">
-            <h4>Tech Stack</h4>
+            <h4 id="modal-stack-title"></h4>
             <div class="modal-stack"></div>
           </div>
         </div>
@@ -273,6 +46,7 @@
     </section>
   </div>
 
+  <script src="portfolio-data.js"></script>
   <script src="portfolio-light.js"></script>
 </body>
 

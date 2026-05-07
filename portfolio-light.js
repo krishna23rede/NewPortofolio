@@ -1,319 +1,190 @@
-const modal = document.querySelector("#project-modal");
-const modalTitle = document.querySelector("#modal-title");
-const modalDescription = document.querySelector(".modal-description");
-const modalHighlights = document.querySelector(".modal-highlights");
-const modalStack = document.querySelector(".modal-stack");
-const showMoreUnityButton = document.querySelector("[data-show-more='unity']");
-const carouselTrack = document.querySelector(".carousel-track");
-const prevButton = document.querySelector(".carousel-btn.prev");
-const nextButton = document.querySelector(".carousel-btn.next");
-const closeButtons = document.querySelectorAll("[data-close-modal]");
-const projectTiles = document.querySelectorAll(".project-tile");
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorRing = document.querySelector(".cursor-ring");
-const hero = document.querySelector(".hero");
-const heroCanvas = document.querySelector(".hero-canvas");
+const appContent = document.querySelector('#app-content');
+const headerRoot = document.querySelector('#site-header');
+const modal = document.querySelector('#project-modal');
+const modalTitle = document.querySelector('#modal-title');
+const modalDescription = document.querySelector('.modal-description');
+const modalHighlights = document.querySelector('.modal-highlights');
+const modalStack = document.querySelector('.modal-stack');
+const modalHighlightsTitle = document.querySelector('#modal-highlights-title');
+const modalStackTitle = document.querySelector('#modal-stack-title');
+const carouselTrack = document.querySelector('.carousel-track');
+const prevButton = document.querySelector('.carousel-btn.prev');
+const nextButton = document.querySelector('.carousel-btn.next');
+const closeButtons = document.querySelectorAll('[data-close-modal]');
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorRing = document.querySelector('.cursor-ring');
 
-const projectData = {
-  "unity-1": {
-    title: "BomberMan",
-    description: "Grid-based action game with procedural levels, destructible environments, and strategic bomb mechanics.",
-    highlights: [
-      "Procedural grid map generation with balanced spawn logic.",
-      "Joystick-based movement and precise grid-aligned bomb placement.",
-      "Explosion system with dynamic VFX and area damage logic.",
-      "Randomized power-up system with timed effects."
-    ],
-    stack: ["Unity", "C#", "Coroutines", "Particle System"],
-    codeUrl: "https://github.com/",
-    snippet: `// State-driven enemy update loop
-switch (state) {
-  case EnemyState.Chase:
-    MoveTowards(player.position);
-    if (CanFlank()) state = EnemyState.Flank;
-    break;
-}`,
-    media: [
-      { type: "image", src: "Assets/BomberGame/1.jpg", alt: "Procedural map" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BomberMan-1.mp4" },
-      { type: "image", src: "Assets/BomberGame/2.jpg", alt: "Explosion VFX" }
-    ]
-  },
-  "unity-2": {
-    title: "Burger Shop",
-    description: "Fast-paced restaurant simulation focused on customer flow, stacking systems, and service efficiency.",
-    highlights: [
-      "NavMesh-based customer AI with queue and service handling.",
-      "Stack-based item pickup and delivery system.",
-      "Task-driven AI helpers with priority execution.",
-      "Drive-thru and dine-in systems with shared logic."
-    ],
-    stack: ["Unity", "C#", "NavMesh", "AI Task System"],
-    codeUrl: "https://github.com/",
-    snippet: `float score = (threat * 0.7f) + ((1f / distance) * 0.3f);
-if (score > bestScore) bestTarget = candidate;`,
-    media: [
-      { type: "image", src: "Assets/burgerGame/1.jpg", alt: "Customer system" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/BurgerGame-1.mp4" },
-      { type: "image", src: "Assets/burgerGame/3.jpg", alt: "Drive-thru" }
-    ]
-  },
-  "unity-3": {
-    title: "Hide N Seek",
-    description: "Stealth-based multiplayer-style game with seeker vs hider mechanics and dynamic abilities.",
-    highlights: [
-      "NavMesh AI with randomized roaming behavior.",
-      "Radar-based detection and stealth gameplay.",
-      "Interactive environment with physics-based triggers.",
-      "Power-ups including camouflage, speed, and phasing."
-    ],
-    stack: ["Unity", "C#", "NavMesh", "Raycasting", "Physics"],
-    codeUrl: "https://github.com/",
-    snippet: `if (jumpBuffer > 0 && coyoteTime > 0) {
-  ApplyJumpImpulse();
-  jumpBuffer = 0f;
-}`,
-    media: [
-      { type: "image", src: "Assets/hideGame/1.jpg", alt: "Seeker gameplay" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HideGame-1.mp4" },
-      { type: "image", src: "Assets/hideGame/6.jpg", alt: "Camouflage" }
-    ]
-  },
-  "unity-4": {
-    title: "Hitman Go",
-    description: "Turn-based strategy game with grid movement and predictable enemy patterns.",
-    highlights: [
-      "Node-based grid movement with step validation.",
-      "Enemy rotation patterns and directional detection.",
-      "Stealth kill and fail-state detection logic.",
-      "Level design with predefined AI behaviors."
-    ],
-    stack: ["Unity", "C#", "Grid System", "Turn-Based Logic"],
-    codeUrl: "https://github.com/",
-    snippet: `if (isLockedOn) {
-  cameraRig.Damping = Mathf.Lerp(6f, 2f, lockStrength);
-}`,
-    media: [
-      { type: "image", src: "Assets/hitmanGame/1.jpg", alt: "Grid system" },
-      { type: "image", src: "Assets/hitmanGame/2.jpg", alt: "Enemy logic" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HitmanGame.mp4" }
-    ]
-  },
-  "unity-5": {
-    title: "Perfect Hotel",
-    description: "Simulation game managing customers, rooms, and services with automated AI systems.",
-    highlights: [
-      "Task-based customer lifecycle and action sequencing.",
-      "Room state system with cleaning and reset logic.",
-      "AI helpers for automation and efficiency.",
-      "Multi-service systems including dining and parking."
-    ],
-    stack: ["Unity", "C#", "AI Systems", "Task Queues"],
-    codeUrl: "https://github.com/",
-    snippet: `speed = Mathf.MoveTowards(speed, targetSpeed, accel * dt);
-if (isBoosting) speed += boostForce * dt;`,
-    media: [
-      { type: "image", src: "Assets/hotelGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HotelGame-1.mp4" },
-      { type: "image", src: "Assets/hotelGame/3.jpg", alt: "Cleaner AI" }
-    ]
-  },
-  "unity-6": {
-    title: "Hunter Assassin 3D",
-    description: "Stealth action game featuring enemy AI states, detection systems, and tactical eliminations.",
-    highlights: [
-      "Enemy AI with patrol, alert, hunt, and attack states.",
-      "Stealth kill system with detection and alert propagation.",
-      "Gem reward and collection system with dynamic spawning.",
-      "Power-ups with cooldowns and visual feedback UI."
-    ],
-    stack: ["Unity", "C#", "NavMesh", "State Machines", "UI Systems"],
-    codeUrl: "https://github.com/",
-    snippet: `if (bufferedDash && canDash) {
-  ExecuteDash();
-  bufferedDash = false;
-}`,
-    media: [
-      { type: "image", src: "Assets/hunterGame/1.jpg", alt: "Stealth gameplay" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/HunterGame-1.mp4" },
-      { type: "image", src: "Assets/hunterGame/2.jpg", alt: "AI states" }
-    ]
-  },
-  "unity-7": {
-    title: "Kart Game",
-    description: "Arcade-style racing game with combat mechanics, weapons, and physics-based interactions.",
-    highlights: [
-      "Physics-based kart movement with surface-dependent handling.",
-      "Modular weapon system with multiple attack types.",
-      "Collision-based combat and damage system.",
-      "AI racers with dynamic targeting and behavior."
-    ],
-    stack: ["Unity", "C#", "Physics", "AI Systems"],
-    codeUrl: "https://github.com/",
-    snippet: `threat = Mathf.Clamp(threat + spawnWeight - decay * dt, 0f, 100f);`,
-    media: [
-      { type: "image", src: "Assets/kartGame/1.jpg", alt: "Track" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/KartGame-1.mp4" },
-      { type: "image", src: "Assets/kartGame/3.jpg", alt: "Weapons" }
-    ]
-  },
-  "unity-8": {
-    title: "Shopping Mall",
-    description: "Management simulation with resource systems, AI helpers, and customizable store environments.",
-    highlights: [
-      "Customer flow system with reception and store routing.",
-      "Inventory and restocking system with stack mechanics.",
-      "AI helpers for automated task execution.",
-      "Store and environment customization system."
-    ],
-    stack: ["Unity", "C#", "AI Systems", "Resource Management"],
-    codeUrl: "https://github.com/",
-    snippet: `if (IsServer) {
-  objectiveState.Value = ObjectiveState.Captured;
-}`,
-    media: [
-      { type: "image", src: "Assets/mallGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/MallGame-1.mp4" },
-      { type: "image", src: "Assets/mallGame/3.jpg", alt: "Inventory" }
-    ]
-  },
-  "unity-9": {
-    title: "Ski Resort",
-    description: "Simulation game combining customer management, logistics, and interactive systems.",
-    highlights: [
-      "Customer lifecycle from entry to activity completion.",
-      "Parking and toll system with queue management.",
-      "Ski equipment distribution and restocking system.",
-      "AI helpers and upgrade-based efficiency scaling."
-    ],
-    stack: ["Unity", "C#", "NavMesh", "Queue Systems"],
-    codeUrl: "https://github.com/",
-    snippet: `rng = new System.Random(seed);
-nextRoom = roomPool[rng.Next(roomPool.Count)];`,
-    media: [
-      { type: "image", src: "Assets/skiGame/1.jpg", alt: "Reception" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/SkiGame-1.mp4" },
-      { type: "image", src: "Assets/skiGame/3.jpg", alt: "Ski lift" }
-    ]
-  },
-  "unity-10": {
-    title: "Track & Field",
-    description: "Arcade sports game focused on stamina management, timing, and obstacle-based challenges.",
-    highlights: [
-      "Tap-based speed control with stamina system.",
-      "Hurdle jumping with timing and penalty logic.",
-      "Dolly track movement system for linear progression.",
-      "Dynamic animation and feedback system."
-    ],
-    stack: ["Unity", "C#", "Animation", "Input System"],
-    codeUrl: "https://github.com/",
-    snippet: `if (triggerA && triggerB && !doorOpen) {
-  OpenDoor();
-}`,
-    media: [
-      { type: "image", src: "Assets/trackGame/1.jpg", alt: "Running" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AllRecording/TrackGame-1.mp4" },
-      { type: "image", src: "Assets/trackGame/4.jpg", alt: "Crowd" }
-    ]
-  },
-  "unreal-1": {
-    title: "Obstacle Assault",
-    description: "Physics-based platformer featuring synchronized movement mechanics and high-stakes environmental navigation.",
-    highlights: [
-      "Custom physics constraints for realistic 'chained' player movement.",
-      "Dynamic obstacle course with moving platforms and swinging pendulums.",
-      "Asynchronous or local multiplayer synchronization logic.",
-      "Punishing 'fall-reset' mechanics designed for high-tension gameplay."
-    ],
-    stack: ["Unreal Engine 5", "C++", "Blueprints", "EQS"],
-    codeUrl: "https://github.com/",
-    snippet: "joint.connectedBody = playerTwoRB; joint.linearLimit = new SoftJointLimit { limit = maxDistance };",
-    media: [
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_1.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_2.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/AssaultObstacle/Obstacle_3.mp4" }
-    ]
-  },
-  "unreal-2": {
-    title: "Blaze In Blaze Out",
-    description: "Fast-paced third-person shooter featuring a heat-managed arsenal and a sophisticated weighted AI reaction system.",
-    highlights: [
-      "Thermal-regulated primary laser with tactical heat-buildup mechanics.",
-      "Versatile ability kit including infused grenade launchers, multi-directional volleys, and an auto-firing ultimate.",
-      "Hierarchical AI system with Guard, Patrol, and Rusher archetypes for melee and ranged units.",
-      "Prime Helix Boss encounter with complex attack patterns: Death Ray, Shockwave, and AOE Ground Smash.",
-      "Weighted randomness for hit-react animations, providing organic combat feedback."
-    ],
-    stack: ["Unreal Engine", "Blueprints", "C++", "AI Navigation", "AI Perception"],
-    codeUrl: "https://github.com/",
-    snippet: "CurrentHeat = FMath::Clamp(CurrentHeat + HeatPerShot, 0.0f, MaxHeat); if (CurrentHeat >= MaxHeat) Overheat();",
-    media: [
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_1.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_2.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/TwinBlastGame/ShooterGame_3.mp4" }
-    ]
-  },
-  "unreal-3": {
-    title: "Drone Strike",
-    description: "Aerial combat shooter focused on trigger-based wave management and high-precision drone warfare.",
-    highlights: [
-      "Dynamic laser-based projectile system with custom collision detection.",
-      "Trigger-box encounter logic for automated enemy squadron spawning.",
-      "Aggressive bot AI designed for proximity-based engagement and suppression.",
-      "Static Boss Drone featuring high-accuracy targeting and heavy damage scaling.",
-      "Integrated VFX and SFX modules for immersive mechanical combat feedback."
-    ],
-    stack: ["Unreal Engine", "Blueprints", "AI Behaviour", "Niagara VFX"],
-    codeUrl: "https://github.com/",
-    snippet: "void ADrone::FireLaser() { FVector SpawnLoc = GetActorLocation(); FRotator SpawnRot = GetActorRotation(); SpawnProjectile(SpawnLoc, SpawnRot); }",
-    media: [
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_1.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_2.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/DroneGame/Drone_3.mp4" }
-    ]
-  },
-  "unreal-4": {
-    title: "Shooter Sam",
-    description: "Third-person shooter focused on core AI combat loops and behavior tree-driven engagement.",
-    highlights: [
-      "Modular Behavior Tree architecture for responsive enemy decision-making.",
-      "Perception-based chase logic utilizing Unreal's AI Sensing component.",
-      "Dynamic movement-to-fire transitions for seamless bot combat behavior.",
-      "NavMesh-optimized pathfinding for persistent player tracking across complex terrain."
-    ],
-    stack: ["Unreal Engine", "Blueprints", "C++", "Behavior Trees", "AI Perception"],
-    codeUrl: "https://github.com/",
-    snippet: "BT_Enemy->RunBehaviorTree(EnemyBehaviorAsset); // Execute logic to find and chase player",
-    media: [
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/ShooterSam/ShooterSam_1.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/ShooterSam/ShooterSam_2.mp4" }
-    ]
-  },
-  "unreal-5": {
-    title: "Neon Drift",
-    description: "An experimental driving simulation exploring high-contrast aesthetics and high-latency handling models.",
-    highlights: [
-      "Intentional 'Stiff-Control' physics model to simulate weighted toy car mechanics.",
-      "Extreme acceleration curves designed for rapid-response twitch gameplay.",
-      "Custom post-processing stack featuring heavy Bloom and emissive Neon materials.",
-      "Experimental physics-to-visual feedback loop to enhance the sense of speed despite rigid handling."
-    ],
-    stack: ["Unreal Engine"],
-    codeUrl: "https://github.com/",
-    snippet: "rb.AddForce(transform.forward * instantAcceleration, ForceMode.VelocityChange);",
-    media: [
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_1.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_2.mp4" },
-      { type: "video", src: "https://media.githubusercontent.com/media/krishna23rede/NewPortofolio/main/Assets/CarGame/Car_3.mp4" }
-    ]
-  }
-};
-
+const projectData = Object.fromEntries(PORTFOLIO_DATA.projects.map((project) => [project.id, project]));
 let activeProject = null;
 let mediaIndex = 0;
 let activeMediaElement = null;
 let modalCloseTimer = null;
 let controlsHideTimer = null;
+let hero = null;
+let heroCanvas = null;
+
+function setSiteMeta() {
+  document.title = PORTFOLIO_DATA.site.title;
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) metaDescription.setAttribute('content', PORTFOLIO_DATA.site.description);
+}
+
+function renderHeader() {
+  if (!headerRoot) return;
+  const { header } = PORTFOLIO_DATA;
+  headerRoot.innerHTML = `
+    <a class="logo" href="#home">${header.logo}</a>
+    <nav>
+      ${header.navLinks.map((link) => `<a href="${link.href}">${link.name}</a>`).join('')}
+      <a class="resume-btn" href="${header.resume.href}" download>${header.resume.label}</a>
+    </nav>
+  `;
+}
+
+function renderHero() {
+  const { hero: heroData } = PORTFOLIO_DATA;
+  return `
+    <section id="home" class="hero">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>${heroData.name}</h1>
+        <p class="designation">${heroData.designation}</p>
+        <p class="tagline">${heroData.taglineLines.join('<br>')}</p>
+        <a class="hero-cta" href="${heroData.cta.href}">${heroData.cta.label}</a>
+      </div>
+    </section>
+  `;
+}
+
+function renderSkills() {
+  const { sections, techStack } = PORTFOLIO_DATA;
+  return `
+    <section class="section tech-stack" id="${sections.techStack.id}">
+      <div class="section-heading reveal">
+        <p class="eyebrow">${sections.techStack.eyebrow}</p>
+        <h2>${sections.techStack.title}</h2>
+      </div>
+      <div class="stack-grid reveal">
+        ${techStack.map((item) => `<span>${item}</span>`).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderProjectTile(project, extraClass) {
+  return `
+    <button class="project-tile ${extraClass}" type="button" data-project-id="${project.id}" ${extraClass ? 'style="display:none"' : ''}>
+      <video autoplay muted loop playsinline preload="metadata" poster="${project.poster}">
+        <source src="${project.video}" type="video/mp4">
+      </video>
+      <span>${project.title}</span>
+    </button>
+  `;
+}
+
+function renderProjects() {
+  const { sections, projects } = PORTFOLIO_DATA;
+  return `
+    <section id="${sections.projects.id}" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">${sections.projects.eyebrow}</p>
+        <h2>${sections.projects.title}</h2>
+      </div>
+      ${sections.projects.categories
+        .map((category) => {
+          const categoryProjects = projects.filter((project) => project.category === category.id);
+          const gridClass = `${category.id.toLowerCase()}-grid`;
+          const tiles = categoryProjects
+            .map((project, index) => renderProjectTile(project, category.limit !== undefined && index >= category.limit ? 'unity-extra' : ''))
+            .join('');
+          const showMore =
+            category.limit !== undefined && categoryProjects.length > category.limit
+              ? `<div class="project-more-wrap"><button class="show-more-btn" type="button" data-show-more="${category.id.toLowerCase()}">${category.showMoreBtn}</button></div>`
+              : '';
+          return `
+            <div class="project-category reveal">
+              <h3>${category.title}</h3>
+              <div class="tile-grid ${gridClass}">
+                ${tiles}
+              </div>
+              ${showMore}
+            </div>
+          `;
+        })
+        .join('')}
+    </section>
+  `;
+}
+
+function renderAbout() {
+  const { sections, about } = PORTFOLIO_DATA;
+  return `
+    <section id="${sections.about.id}" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">${sections.about.eyebrow}</p>
+        <h2>${sections.about.title}</h2>
+      </div>
+      <div class="about-stack">
+        <article class="about-block reveal">
+          <h3>${sections.about.blocks.introduction}</h3>
+          <p>${about.introduction}</p>
+        </article>
+        <article class="about-block reveal">
+          <h3>${sections.about.blocks.skills}</h3>
+          <ul>
+            ${about.skills.map((skill) => `<li><strong>${skill.category}:</strong> ${skill.items}</li>`).join('')}
+          </ul>
+        </article>
+        <article class="about-block reveal">
+          <h3>${sections.about.blocks.experience}</h3>
+          ${about.experience
+            .map(
+              (exp) => `
+                <h4>${exp.title}</h4>
+                <ul>${exp.points.map((point) => `<li>${point}</li>`).join('')}</ul>
+              `
+            )
+            .join('')}
+        </article>
+        <article class="about-block reveal">
+          <h3>${sections.about.blocks.additionalSkills}</h3>
+          <ul>${about.additionalSkills.map((skill) => `<li>${skill}</li>`).join('')}</ul>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderContact() {
+  const { sections, contact } = PORTFOLIO_DATA;
+  return `
+    <section id="${sections.contact.id}" class="section contact reveal">
+      <div class="section-heading">
+        <p class="eyebrow">${sections.contact.eyebrow}</p>
+        <h2>${sections.contact.title}</h2>
+      </div>
+      <p>${contact.description}</p>
+      <div class="contact-links">
+        ${contact.links
+          .map(
+            (link) =>
+              `<a href="${link.href}"${link.target ? ` target="${link.target}"` : ''}${link.rel ? ` rel="${link.rel}"` : ''}>${link.label}</a>`
+          )
+          .join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderPage() {
+  if (!appContent) return;
+  appContent.innerHTML = [renderHero(), renderSkills(), renderProjects(), renderAbout(), renderContact()].join('');
+  hero = document.querySelector('.hero');
+  heroCanvas = document.querySelector('.hero-canvas');
+  modalHighlightsTitle.textContent = PORTFOLIO_DATA.modal.technicalHighlightsTitle;
+  modalStackTitle.textContent = PORTFOLIO_DATA.modal.techStackTitle;
+}
 
 function setupScrollReveal() {
   const targets = document.querySelectorAll(".reveal");
@@ -332,6 +203,7 @@ function setupScrollReveal() {
 }
 
 function setupTileTilt() {
+  const projectTiles = document.querySelectorAll('.project-tile');
   if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
   const maxTilt = 5;
   projectTiles.forEach((tile) => {
@@ -348,6 +220,7 @@ function setupTileTilt() {
 }
 
 function setupUnityShowMore() {
+  const showMoreUnityButton = document.querySelector("[data-show-more='unity']");
   if (!showMoreUnityButton) return;
   const hiddenTiles = document.querySelectorAll(".unity-grid .unity-extra");
   showMoreUnityButton.addEventListener("click", () => {
@@ -645,7 +518,7 @@ function renderProject(projectId) {
     modalHighlights.append(li);
   });
   modalStack.innerHTML = "";
-  project.stack.forEach((item) => {
+  project.tech.forEach((item) => {
     const chip = document.createElement("span");
     chip.textContent = item;
     modalStack.append(chip);
@@ -682,7 +555,11 @@ function closeModal() {
   }, 180);
 }
 
-projectTiles.forEach((tile) => tile.addEventListener("click", () => openModal(tile.dataset.projectId)));
+function bindProjectTileEvents() {
+  const projectTiles = document.querySelectorAll('.project-tile');
+  projectTiles.forEach((tile) => tile.addEventListener('click', () => openModal(tile.dataset.projectId)));
+}
+
 closeButtons.forEach((button) => button.addEventListener("click", closeModal));
 if (prevButton && nextButton) {
   prevButton.addEventListener("click", () => showNextMedia(-1));
@@ -701,6 +578,10 @@ document.addEventListener("visibilitychange", () => {
   else activeMediaElement.play().catch(() => { });
 });
 
+setSiteMeta();
+renderHeader();
+renderPage();
+bindProjectTileEvents();
 setupCustomCursor();
 setupHeroParallaxAndCanvas();
 setupTileTilt();
